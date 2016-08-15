@@ -1,0 +1,7 @@
+**/node_modules
+**/bundle.js
+**.log
+
+# IntelliJ
+*.iml
+/.idea
