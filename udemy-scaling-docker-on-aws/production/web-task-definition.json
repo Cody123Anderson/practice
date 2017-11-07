@@ -1,0 +1,57 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "011323353560.dkr.ecr.us-west-1.amazonaws.com/dockerzon/nginx",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ],
+      "links": ["dockerzon:dockerzon"],
+      "volumesFrom": [
+        {
+          "sourceContainer": "dockerzon"
+        }
+      ],
+      "cpu": 256,
+      "memory": 200
+    },
+    {
+      "name": "dockerzon",
+      "image": "011323353560.dkr.ecr.us-west-1.amazonaws.com/dockerzon/dockerzon",
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000
+        }
+      ],
+      "cpu": 768,
+      "memory": 650,
+      "environment": [
+        {
+          "name": "RAILS_ENV",
+          "value": "production"
+        },
+        {
+          "name": "DATABASE_URL",
+          "value": "postgresql://dockerzon:intergalacticzebramoldfactory@dockerzon-production.cotawycvyiuc.us-west-1.rds.amazonaws.com:5432/dockerzon?encoding=utf8&pool=40&timeout=5000"
+        },
+        {
+          "name": "CACHE_URL",
+          "value": "redis://dockerzon-production.q3gfok.0001.usw1.cache.amazonaws.com:6379"
+        },
+        {
+          "name": "JOB_WORKER_URL",
+          "value": "redis://dockerzon-production.q3gfok.0001.usw1.cache.amazonaws.com:6379"
+        },
+        {
+          "name": "SECRET_TOKEN",
+          "value": "a9b4fec4a1ecdd49a43ed0b8f99a8a5951017816698b4e46b10f477b45b3b50eefedab2b5bd941db0ffc6d92524b11d60ed328efcccaa1bc1a9ebf5d0f10a179"
+        }
+      ]
+    }
+  ],
+  "family": "web"
+}

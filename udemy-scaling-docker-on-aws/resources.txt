@@ -1,0 +1,8 @@
+Registry URL: 011323353560.dkr.ecr.us-west-1.amazonaws.com
+us-west-1 ECS-Optimized AMI: ami-d5d0e0b5
+Postgres password: intergalacticzebramoldfactory
+Security Group: sg-e9d19d8f
+Postgres endpoint: dockerzon-production.cotawycvyiuc.us-west-1.rds.amazonaws.com
+Redis Endpoint: dockerzon-production.q3gfok.0001.usw1.cache.amazonaws.com
+Subnet ids: subnet-c31b969b subnet-233f4247
+ELB DNS: elb-dockerzon-web-941081061.us-west-1.elb.amazonaws.com
